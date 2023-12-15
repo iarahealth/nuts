@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:5.8.0
+FROM node:18-alpine
 
 # Switch to /app
 WORKDIR /app
@@ -7,9 +7,5 @@ COPY package.json ./
 RUN npm install --production
 # Copy source
 COPY . ./
-
-# Ports
-ENV PORT 80
-EXPOSE 80
 
 ENTRYPOINT ["npm", "start"]
